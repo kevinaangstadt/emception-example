@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      pre {
+        white-space: pre-wrap;       /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+        white-space: -pre-wrap;      /* Opera 4-6 */
+        white-space: -o-pre-wrap;    /* Opera 7 */
+        word-wrap: break-word;       /* Internet Explorer 5.5+ */
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <textarea name="code" id="code">
+#include <emscripten.h>
+#include <iostream>
+
+extern "C" {
+  EMSCRIPTEN_KEEPALIVE int foo(void) {
+      std::cout << "hello world!" << std::endl;
+      return 0;
+  }
+}
+              
+      </textarea>
+      <button id="compile" disabled>Compile</button>
+    </form>
+    <pre id="console" width="100%">
+
+    </pre>
+    <script type="module" src="main.mjs"></script>
+  </body>
+</html>
